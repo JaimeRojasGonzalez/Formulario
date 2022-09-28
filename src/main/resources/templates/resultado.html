@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<section th:replace="componentes/tiempo :: interceptor"></section>
+
+	<div class="container card">
+
+		<a th:href="@{/form}" class="btn btn-success btn-large my-3">Volver</a>
+		<ul class="list-group my-3">
+			<li class="list-group-item active" th:text="${titulo}"></li>
+			<li class="list-group-item" th:text="${usuario.nombre}">Nombre:
+			</li>
+			<li class="list-group-item" th:text="${usuario.apellido}">Apellido:
+			</li>
+			<li class="list-group-item" th:text="${usuario.email}">Email:</li>
+			<li class="list-group-item"
+				th:text="${#dates.format(usuario.fechaNac, 'dd-MM-yyyy')}">Fecha
+				de Nacimiento:</li>
+			<li class="list-group-item" th:text="${usuario.edad} + ' años'">Edad:
+			</li>
+		</ul>
+	</div>
+
+</body>
+</html>
